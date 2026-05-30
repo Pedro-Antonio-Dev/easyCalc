@@ -5,12 +5,12 @@ import MathExpression from '../../components/MathExpression/MathExpression';
 import { modules } from '../../data/modules';
 
 const heroFormulas = [
-  '\\frac{d}{dx}[x^n] = nx^{n-1}',
-  '\\int x^n\\,dx = \\frac{x^{n+1}}{n+1} + C',
-  '\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1',
+  'd/dx[xⁿ] = n·xⁿ⁻¹',
+  '∫ xⁿ dx = xⁿ⁺¹/(n+1) + C',
+  'lim(x→0) sen(x)/x = 1',
 ];
 
-function Home({ onEnterModule }) {
+function Home({ onEnterModule, overallProgress, answeredQuestions, totalQuestions, getModuleProgress, resetProgress }) {
   function scrollToModules() {
     document.getElementById('modules').scrollIntoView({ behavior: 'smooth' });
   }
@@ -36,7 +36,6 @@ function Home({ onEnterModule }) {
             <button className={styles.ctaPrimary} onClick={scrollToModules}>
               Começar agora
             </button>
-            <button className={styles.ctaSecondary}>Ver progresso</button>
           </div>
         </div>
         <div className={styles.heroFormulas}>
@@ -50,17 +49,27 @@ function Home({ onEnterModule }) {
 
       <section className={styles.progressSection}>
         <h2 className={styles.sectionTitle}>Seu Progresso</h2>
-        <ProgressBar />
+        <ProgressBar
+          overallProgress={overallProgress}
+          answeredQuestions={answeredQuestions}
+          totalQuestions={totalQuestions}
+          onReset={resetProgress}
+        />
       </section>
 
       <section className={styles.modulesSection} id="modules">
         <div className={styles.sectionHeader}>
           <h2 className={styles.sectionTitle}>Módulos</h2>
-          <p className={styles.sectionSub}>6 módulos do Pré-Cálculo ao CDI II</p>
+          <p className={styles.sectionSub}>6 módulos do Pré-Cálculo ao CDI I</p>
         </div>
         <div className={styles.grid}>
           {modules.map((mod) => (
-            <ModuleCard key={mod.id} module={mod} onEnter={onEnterModule} />
+            <ModuleCard
+              key={mod.id}
+              module={mod}
+              progress={getModuleProgress(mod.id)}
+              onEnter={onEnterModule}
+            />
           ))}
         </div>
       </section>

@@ -94,3 +94,25 @@
   .stats { grid-template-columns: repeat(2, 1fr); }
   .wrapper { padding: 20px; }
 }
+
+/* ── Reset row ── */
+.resetRow {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.resetBtn {
+  padding: 8px 18px;
+  background: transparent;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: var(--radius-sm);
+  color: #f87171;
+  font-size: 13px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.resetBtn:hover {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.5);
+}

@@ -1,37 +1,34 @@
 import styles from './ModuleCard.module.css';
 import MathExpression from '../MathExpression/MathExpression';
 
-function ModuleCard({ module, onEnter }) {
-  const { id, title, description, formula, color, locked, progress } = module;
-  const cardCls = [styles.card, locked && styles.locked].filter(Boolean).join(' ');
-  const btnCls = [styles.btn, locked ? styles.btnLocked : styles.btnActive].join(' ');
+function ModuleCard({ module, progress, onEnter }) {
+  const { id, titulo, descricao, formula, color } = module;
+  const pct = progress ?? 0;
+  const isDone = pct === 100;
 
   return (
-    <article className={cardCls} style={{ '--accent': color }}>
+    <article
+      className={styles.card}
+      style={{ '--accent': color }}
+      onClick={() => onEnter(module)}
+    >
       <div className={styles.topRow}>
         <span className={styles.moduleNum}>Módulo {id}</span>
-        {locked && <span className={styles.lockIcon}>🔒</span>}
-        {!locked && progress === 100 && <span className={styles.checkIcon}>✓</span>}
+        {isDone && <span className={styles.checkIcon}>✓</span>}
       </div>
-      <h3 className={styles.title}>{title}</h3>
-      <p className={styles.description}>{description}</p>
+      <h3 className={styles.title}>{titulo}</h3>
+      <p className={styles.description}>{descricao}</p>
       <div className={styles.formula}>
         <MathExpression expression={formula} />
       </div>
-      {!locked && (
-        <div className={styles.progressRow}>
-          <div className={styles.miniTrack}>
-            <div className={styles.miniFill} style={{ width: progress + '%' }} />
-          </div>
-          <span className={styles.progressText}>{progress}%</span>
+      <div className={styles.progressRow}>
+        <div className={styles.miniTrack}>
+          <div className={styles.miniFill} style={{ width: pct + '%' }} />
         </div>
-      )}
-      <button
-        className={btnCls}
-        onClick={() => !locked && onEnter(module)}
-        disabled={locked}
-      >
-        {locked ? 'Bloqueado' : progress > 0 ? 'Continuar' : 'Entrar'}
+        <span className={styles.progressText}>{pct}%</span>
+      </div>
+      <button className={`${styles.btn} ${styles.btnActive}`}>
+        {pct > 0 && !isDone ? 'Continuar' : isDone ? 'Revisar' : 'Entrar'}
       </button>
     </article>
   );
