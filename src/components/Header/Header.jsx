@@ -12,10 +12,11 @@ function Header({ onNavigate }) {
           <button className={styles.navBtn} onClick={() => onNavigate('home')}>Módulos</button>
           <button className={styles.navBtn}>Progresso</button>
           <button className={styles.navBtn}>Sobre</button>
+
         </nav>
         <div className={styles.badge}>
-          <span className={styles.xp}>⚡ 1250 XP</span>
-          <span className={styles.level}>Nível 3</span>
+          <span className={styles.xp}>⚡ 0 XP</span>
+          <span className={styles.level}>Nível 0</span>
         </div>
       </div>
     </header>

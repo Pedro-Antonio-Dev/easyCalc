@@ -48,6 +48,7 @@ function App() {
             moduleProgress={selectedModule ? getModuleProgress(selectedModule.id) : 0}
           />
         )}
+
       </main>
       <Footer />
     </div>
