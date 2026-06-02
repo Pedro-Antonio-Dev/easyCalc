@@ -6,7 +6,7 @@ export const modules = [
     descricao: 'Fundamentos matemáticos necessários para compreender os conceitos de cálculo.',
     formula: 'f(x) = ax^2 + bx + c',
     color: '#6366f1',
-    videoUrl: 'https://www.youtube.com/watch?v=HfACrKJ_Y2w',
+    videoUrl: 'https://youtube.com/playlist?list=PLdQ29IZEEOh6S--PxE8Aipu5bGdle_tpl&si=yuVOoQ2ymDQ1u0uR',
     questoes: [
       {
         id: 1,
@@ -83,7 +83,7 @@ export const modules = [
     descricao: 'Introdução ao conceito fundamental do cálculo diferencial.',
     formula: '\\lim_{x \\to a} f(x) = L',
     color: '#818cf8',
-    videoUrl: 'https://www.youtube.com/watch?v=riXcZT2ICjA',
+    videoUrl: 'https://youtube.com/playlist?list=PLdQ29IZEEOh6xvtFSCLB2Dtt98vUJIer5&si=MJfFd9zCw45vUI16',
     questoes: [
       {
         id: 1,
@@ -160,7 +160,7 @@ export const modules = [
     descricao: 'Aprenda a calcular taxas de variação e derivadas de funções.',
     formula: "f'(x) = \\lim_{h \\to 0} \\dfrac{f(x+h) - f(x)}{h}",
     color: '#a855f7',
-    videoUrl: 'https://www.youtube.com/watch?v=rAof9Ld5sOg',
+    videoUrl: 'https://youtube.com/playlist?list=PLdQ29IZEEOh7u-feGYtfy1Z6lJ3VL-9Dd&si=ZNwILS1dc7_kwQi2',
     questoes: [
       {
         id: 1,
@@ -237,7 +237,7 @@ export const modules = [
     descricao: 'Aplicações práticas das derivadas na resolução de problemas.',
     formula: "f'(x_0) = 0 \\text{ e } f''(x_0) < 0",
     color: '#c084fc',
-    videoUrl: 'https://www.youtube.com/watch?v=viaPc8zDcRI',
+    videoUrl: 'https://youtu.be/Wmf_ST7sDqs?si=RK6KDHu0nvjl5ZPi',
     questoes: [
       {
         id: 1,
@@ -314,7 +314,7 @@ export const modules = [
     descricao: 'Introdução ao cálculo integral e suas propriedades.',
     formula: '\\int\\limits_a^b f(x)\\,dx = F(b) - F(a)',
     color: '#e879f9',
-    videoUrl: 'https://www.youtube.com/watch?v=rfG8ce4nNh0',
+    videoUrl: 'https://youtube.com/playlist?list=PLdQ29IZEEOh7c2BaKBoPe4xwaIv3kzU7h&si=JOqWaOWipjbVF1IY',
     questoes: [
       {
         id: 1,
@@ -391,7 +391,7 @@ export const modules = [
     descricao: 'Utilização de integrais definidas para cálculo de áreas em diferentes contextos.',
     formula: 'A = \\int\\limits_a^b [f(x) - g(x)]\\,dx',
     color: '#f0abfc',
-    videoUrl: 'https://www.youtube.com/watch?v=0RdI3-8G4Fs',
+    videoUrl: 'https://youtube.com/playlist?list=PLdQ29IZEEOh4kZjdwpaIOjPDvp8mirYJz&si=XUHRgX7Zyhv0Z7cS',
     questoes: [
       {
         id: 1,
