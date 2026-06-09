@@ -87,6 +87,9 @@ function QuestionCard({ question, moduleId, isAnswered, onAnswer }) {
       {isCorrect && (
         <div className={`${styles.feedback} ${styles.feedbackCorrect}`}>
           🎉 Parabéns! Resposta correta.
+          {!isAnswered && (
+            <span className={styles.xpGain}>+100 XP</span>
+          )}
         </div>
       )}
 

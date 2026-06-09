@@ -3,7 +3,9 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Home from './pages/Home/Home';
 import Module from './pages/Module/Module';
+import LevelUpNotification from './components/LevelUpNotification/LevelUpNotification';
 import { useProgress } from './useProgress';
+import { usePlayer } from './usePlayer';
 
 function App() {
   const [page, setPage] = useState('home');
@@ -19,15 +21,28 @@ function App() {
     totalQuestions,
   } = useProgress();
 
+  const { player, progress, awardXp, resetPlayer, levelUpNotification, dismissLevelUp } =
+    usePlayer();
+
   function navigate(target, data) {
     setPage(target);
     if (data) setSelectedModule(data);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  function handleAnswer(moduleId, questionId) {
+    markQuestionAnswered(moduleId, questionId);
+    awardXp(`${moduleId}-${questionId}`);
+  }
+
+  function handleReset() {
+    resetProgress();
+    resetPlayer();
+  }
+
   return (
     <div className="app">
-      <Header onNavigate={navigate} />
+      <Header onNavigate={navigate} player={player} progress={progress} />
       <main>
         {page === 'home' && (
           <Home
@@ -36,7 +51,7 @@ function App() {
             answeredQuestions={answeredQuestions}
             totalQuestions={totalQuestions}
             getModuleProgress={getModuleProgress}
-            resetProgress={resetProgress}
+            resetProgress={handleReset}
           />
         )}
         {page === 'module' && (
@@ -44,13 +59,15 @@ function App() {
             module={selectedModule}
             onBack={() => navigate('home')}
             isQuestionAnswered={isQuestionAnswered}
-            onAnswer={markQuestionAnswered}
+            onAnswer={handleAnswer}
             moduleProgress={selectedModule ? getModuleProgress(selectedModule.id) : 0}
           />
         )}
-
       </main>
       <Footer />
+      {levelUpNotification && (
+        <LevelUpNotification level={levelUpNotification} onDismiss={dismissLevelUp} />
+      )}
     </div>
   );
 }

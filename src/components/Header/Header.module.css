@@ -68,10 +68,10 @@
   background: rgba(99, 102, 241, 0.1);
 }
 
-.badge {
+.playerPanel {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
 }
 
 .xp {
@@ -96,5 +96,5 @@
 
 @media (max-width: 640px) {
   .nav { display: none; }
-  .badge { gap: 6px; }
+  .playerPanel { gap: 6px; }
 }
